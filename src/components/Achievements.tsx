@@ -15,8 +15,6 @@ export default function Achievements() {
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/projects`);
 
-            console.log(response);
-
             if (!response.ok) throw new Error("Server cannot be joined!");
 
             const projects = await response.json();
@@ -31,17 +29,17 @@ export default function Achievements() {
     useEffect(() => {
         loadProjects();
     }, []);
-    return <div id="projects" className="h-screen flex flex-col items-center justify-around">
+    return <div id="projects" className="h-screen flex flex-col items-center space-y-3 md:space-y-10">
         <h2 className="text-3xl font-semibold text-center">PROJECTS</h2>
-        <div className="flex flex-col items-center space-y-3">
+        <div className="flex flex-wrap justify-center space-y-5 md:space-x-10 md:space-y-10">
 
             {projects?.map((project: Project) => {
                 return (
                     // TODO: Replace "#projects" with a route to Project page/component
-                    <a href="#projects">
-                        <div key={project.id} className="flex flex-col items-center">
-                            <img src={project.imageUrl} alt={`Preview for project no.${project.id}`} />
-                            <h3 className="text-2xl font-semibold tracking-tight">{project.title}</h3>
+                    <a href="#projects" key={project.id}>
+                        <div className="flex flex-col items-center">
+                            <img src={project.imageUrl} alt={`Preview for project no.${project.id}`} className="rounded-lg" />
+                            <h3 className="text-lg font-semibold tracking-tight">{project.title}</h3>
                             {/* <p>{project.description}</p> */}
                             {/* <ul>
                             {project.techs.map((tech, index) => <li key={index}>{tech}</li>)}
@@ -58,15 +56,3 @@ export default function Achievements() {
 
 
 }
-
-/*
-    // <div id="about">
-    //     <article className="flex flex-col justify-around items-center w-96 h-9/10">
-    //         <p className="text-muted-foreground text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eum deleniti repellendus minima assumenda vitae saepe eos, aperiam, ut at atque? Ipsa consectetur iste laudantium, adipisci quaerat pariatur sequi amet.
-    //             Soluta nulla nisi expedita nostrum quaerat atque, dolore libero vero, eligendi harum, non facere quam mollitia vel velit et? Consequuntur nesciunt possimus nostrum eius obcaecati assumenda, unde voluptate optio veritatis.</p>
-    //         <p className="text-muted-foreground text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eum deleniti repellendus minima assumenda vitae saepe eos, aperiam, ut at atque? Ipsa consectetur iste laudantium, adipisci quaerat pariatur sequi amet.
-    //             Soluta nulla nisi expedita nostrum quaerat atque, dolore libero vero, eligendi harum, non facere quam mollitia vel velit et? Consequuntur nesciunt possimus nostrum eius obcaecati assumenda, unde voluptate optio veritatis.</p>
-    //     </article>
-    // </div>
-*/
-
