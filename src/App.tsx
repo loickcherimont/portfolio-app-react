@@ -1,15 +1,17 @@
 import Home from "./components/Home";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
 
   return (
-    <div className="flex flex-col">
+    <>
       <Home />
+      <About />
       <Achievements />
       <Contact />
-    </div>
+    </>
   )
 }
 
