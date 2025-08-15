@@ -11,7 +11,7 @@ export default function Home() {
             {/* PHOTO */}
             {/* Title */}
             {/* Position */}
-            <div className="flex flex-col items-center space-y-3">
+            <div className="flex flex-col items-center space-y-3 mt-5">
                 <img src="https://placehold.co/300" alt="Developer's photo" className="rounded-lg" />
                 <h2 className="border-b pb-2 text-3xl font-semibold">Loick CHERIMONT</h2>
                 <p className="leading-7">Spring/TypeScript Developer</p>
