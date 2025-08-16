@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -13,5 +14,17 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-  }
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./tests/setupTests.ts",
+    coverage: {
+      provider: 'istanbul',              // ou 'istanbul'
+      reporter: ['text', 'lcov'],  // 'text' pour console, 'lcov' pour navigateur
+      all: true,                    // inclut tous les fichiers, pas seulement ceux importés dans les tests
+      include: ['src/**/*.{ts,tsx}'] // fichiers à couvrir
+    }
+  },
+
 })
