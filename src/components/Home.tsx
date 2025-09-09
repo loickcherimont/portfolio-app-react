@@ -6,8 +6,8 @@ export default function Home() {
         // TODO: Store CV
         alert("CV downloaded")
     }
-    return <div id="home">
-        <div className="flex flex-col h-9/10 items-center justify-around">
+    return <div id="home" className="min-h-screen">
+        <div className="flex flex-col items-center justify-around">
             {/* PHOTO */}
             {/* Title */}
             {/* Position */}

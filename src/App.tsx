@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 function App() {
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col gap-y-10">
       <Header />
       <Home />
       <About />

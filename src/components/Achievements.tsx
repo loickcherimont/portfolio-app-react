@@ -29,7 +29,7 @@ export default function Achievements() {
     useEffect(() => {
         loadProjects();
     }, []);
-    return <div id="projects" className="flex flex-col items-center space-y-3 md:space-y-10">
+    return <div id="projects" className="flex flex-col items-center space-y-3 md:space-y-10 min-h-screen my-10">
         <h2 className="text-3xl font-semibold text-center">PROJECTS</h2>
         <div className="flex flex-wrap justify-center items-baseline space-y-5 md:space-x-10 md:space-y-10">
 
