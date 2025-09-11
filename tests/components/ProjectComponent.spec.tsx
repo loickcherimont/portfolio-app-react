@@ -80,8 +80,8 @@ describe("ProjectComponent", () => {
 
     // Comme rien n'est affiché en cas d'erreur, on vérifie que le titre n'apparaît pas
     await waitFor(() => {
-      const heading = screen.getByRole("heading", { level: 1});
-      expect(heading).toHaveTextContent(""); // empty if fetch fails
+      const heading = screen.getByRole("heading", { level: 2});
+      expect(heading).toHaveTextContent("Project not found"); // empty if fetch fails
     });
 
   });
