@@ -15,7 +15,7 @@ export default function NavMenu({ menuItems }: { menuItems: string[] }) {
         >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
         </Button>
-        {isOpen && <NavigationMenu>
+        {isOpen && <NavigationMenu data-testid="mobile-menu">
             <NavigationMenuList className="space-x-5 flex flex-col bg-slate-950 text-slate-300 rounded-md">
                 {menuItems.map((item, index) =>
                     <NavigationMenuItem key={index} >

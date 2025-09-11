@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import Footer from "../../src/components/Footer";
-import { getCurrentYear } from "../../src/lib/utils";
 import { render, screen } from "@testing-library/react";
 
 
