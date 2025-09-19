@@ -35,7 +35,7 @@ export default function Achievements() {
         loadProjects();
     }, []);
 
-    if (!projects) return <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 p-4 space-y-3">
+    if (!projects) return <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 p-4 space-y-3" id="projects">
         <h2 className="text-3xl font-semibold text-center">PROJECTS</h2>
 
       <Card className="max-w-md w-full shadow-lg border border-slate-200">
@@ -56,7 +56,7 @@ export default function Achievements() {
 
             {projects?.map((project: Project) => {
                 return (
-                    <Card key={project.id}>
+                    <Card key={project.id} className="w-80">
                         <CardHeader>
                             <CardTitle className="text-lg font-semibold tracking-tight">{project.title}</CardTitle>
                         </CardHeader>
@@ -64,7 +64,7 @@ export default function Achievements() {
                             <img src={project.imageUrl} alt={`Preview for project no.${project.id}`} className="rounded-lg" />
                         </CardContent>
                         <CardFooter>
-                            <Button className="cursor-pointer" onClick={() => handleSeeProject(project.id)}>See Project</Button>
+                            <Button className="cursor-pointer" onClick={() => handleSeeProject(project.id)}>Know more</Button>
                         </CardFooter>
                     </Card>
                 );
