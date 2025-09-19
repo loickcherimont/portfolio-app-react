@@ -118,3 +118,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.star {
+  animation: twinkle 1s infinite;
+}
+
+/* Amélioration de la lisibilité du contenu */
+h1, h2, h3, p, a {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
