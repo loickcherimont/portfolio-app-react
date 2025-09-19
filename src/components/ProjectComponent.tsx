@@ -76,7 +76,7 @@ export default function ProjectComponent() {
             />
 
             {/* Description */}
-            <p className="text-sm md:text-base lg:text-lg text-center mb-4">
+            <p className="text-sm md:text-base lg:text-lg text-justify mb-4">
                 {project?.description}
             </p>
 
@@ -102,9 +102,9 @@ export default function ProjectComponent() {
                 >
                     {project?.githubUrl}
                 </a>
-                <span className="text-gray-400 text-xs md:text-sm lg:text-base break-all">
+                {/* <span className="text-gray-400 text-xs md:text-sm lg:text-base break-all">
                     {project?.imageUrl}
-                </span>
+                </span> */}
             </div>
 
             <NavLink
