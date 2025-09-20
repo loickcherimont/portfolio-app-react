@@ -27,9 +27,9 @@ export default function Achievements() {
         navigate(`/project/${id}`);
     }
 
-    const handleRetry = () => {
-        window.location.reload();
-    }
+    // const handleRetry = () => {
+    //     window.location.reload();
+    // }
 
     useEffect(() => {
         loadProjects();
