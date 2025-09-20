@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter, CardDescription }
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router";
 import type { Project } from "@/lib/type/Project";
-import { AlertTriangle, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 export default function Achievements() {
     const navigate = useNavigate()
@@ -36,7 +36,7 @@ export default function Achievements() {
     }, []);
 
     if (!projects) return <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 p-4 space-y-3" id="projects">
-        <h2 className="text-3xl font-semibold text-center">PROJECTS</h2>
+        <h2 className="border-b p-3 text-3xl font-semibold text-center">PROJECTS</h2>
 
       <Card className="max-w-md w-full shadow-lg border border-slate-200">
         <CardHeader className="flex flex-col items-center text-center space-y-2">
@@ -51,20 +51,20 @@ export default function Achievements() {
       </Card>
     </div>
     return <div id="projects" className="flex flex-col items-center space-y-3 md:space-y-10 min-h-screen my-10">
-        <h2 className="text-3xl font-semibold text-center">PROJECTS</h2>
+        <h2 className="border-b p-3 text-3xl font-semibold text-center">PROJECTS</h2>
         <div className="flex flex-wrap justify-center items-baseline space-y-5 md:space-x-10 md:space-y-10">
 
             {projects?.map((project: Project) => {
                 return (
-                    <Card key={project.id} className="w-80">
+                    <Card key={project.id} className="w-80 bg-black border-0 hover:-translate-y-2 transition ease-in duration-300">
                         <CardHeader>
-                            <CardTitle className="text-lg font-semibold tracking-tight">{project.title}</CardTitle>
+                            <CardTitle className="text-lg font-semibold tracking-tight text-violet-700">{project.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <img src={project.imageUrl} alt={`Preview for project no.${project.id}`} className="rounded-lg" />
                         </CardContent>
                         <CardFooter>
-                            <Button className="cursor-pointer" onClick={() => handleSeeProject(project.id)}>Know more</Button>
+                            <Button className="cursor-pointer bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300" onClick={() => handleSeeProject(project.id)}>Know more</Button>
                         </CardFooter>
                     </Card>
                 );

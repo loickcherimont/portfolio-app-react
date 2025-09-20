@@ -2,7 +2,7 @@ import { getCurrentYear } from "@/lib/utils";
 
 export default function Footer() {
     return (
-        <footer className="border-t mx-5 p-5 flex flex-col items-center">
+        <footer className="mx-5 p-5 flex flex-col items-center">
             <p>&copy; {getCurrentYear()} Loick Cherimont</p>
             <p>All rights reserved.</p>
         </footer>

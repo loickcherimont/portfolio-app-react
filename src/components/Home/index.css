@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+}
+
+.cosmic-photo-container {
+    position: relative;
+    width: 384px;
+    height: 384px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cosmic-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: -1;
+
+    /* Effet cosmique principal */
+    box-shadow:
+        0 0 30px rgba(173, 216, 255, 0.6),
+        0 0 60px rgba(147, 112, 219, 0.4),
+        0 0 90px rgba(75, 0, 130, 0.3),
+        inset 0 0 50px rgba(25, 25, 112, 0.2);
+
+    /* Animation de pulsation cosmique */
+    animation: cosmicPulse 4s ease-in-out infinite alternate;
+
+    /* Filtre pour effet spatial */
+    filter:
+        contrast(1.1) brightness(1.05) saturate(1.2) hue-rotate(10deg);
+}
+
+/* Cercles cosmiques animés autour de la photo */
+.cosmic-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid;
+    animation: rotate 20s linear infinite;
+    z-index: 1;
+}
+
+.cosmic-ring:nth-child(1) {
+    width: 420px;
+    height: 420px;
+    top: -18px;
+    left: -18px;
+    border-color: rgba(173, 216, 255, 0.3);
+    animation-duration: 15s;
+}
+
+.cosmic-ring:nth-child(2) {
+    width: 450px;
+    height: 450px;
+    top: -33px;
+    left: -33px;
+    border-color: rgba(147, 112, 219, 0.25);
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.cosmic-ring:nth-child(3) {
+    width: 480px;
+    height: 480px;
+    top: -48px;
+    left: -48px;
+    border-color: rgba(200, 162, 255, 0.2);
+    animation-duration: 35s;
+}
+
+/* Particules cosmiques flottantes */
+.cosmic-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    z-index: 3;
+}
+
+.cosmic-particle:nth-child(4) {
+    top: 20%;
+    left: 15%;
+    animation-delay: -1s;
+    background: rgba(173, 216, 255, 0.8);
+}
+
+.cosmic-particle:nth-child(5) {
+    top: 80%;
+    right: 20%;
+    animation-delay: -3s;
+    background: rgba(147, 112, 219, 0.8);
+}
+
+.cosmic-particle:nth-child(6) {
+    bottom: 30%;
+    left: 10%;
+    animation-delay: -5s;
+    background: rgba(200, 162, 255, 0.8);
+}
+
+.cosmic-particle:nth-child(7) {
+    top: 40%;
+    right: 10%;
+    animation-delay: -2s;
+    background: rgba(135, 206, 250, 0.8);
+}
+
+.cosmic-particle:nth-child(8) {
+    bottom: 60%;
+    right: 30%;
+    animation-delay: -4s;
+    background: rgba(255, 248, 220, 0.8);
+}
+
+/* Halo cosmique de fond */
+.cosmic-photo-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: radial-gradient(circle,
+            rgba(173, 216, 255, 0.1) 0%,
+            rgba(147, 112, 219, 0.08) 30%,
+            rgba(75, 0, 130, 0.05) 60%,
+            transparent 80%);
+    border-radius: 50%;
+    animation: cosmicHalo 8s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+/* Masque de dégradé du bas (équivalent à mask-b-from-50%) */
+.cosmic-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    border-radius: 0 0 50% 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes cosmicPulse {
+    0% {
+        box-shadow:
+            0 0 30px rgba(173, 216, 255, 0.6),
+            0 0 60px rgba(147, 112, 219, 0.4),
+            0 0 90px rgba(75, 0, 130, 0.3);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow:
+            0 0 40px rgba(173, 216, 255, 0.8),
+            0 0 80px rgba(147, 112, 219, 0.6),
+            0 0 120px rgba(75, 0, 130, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes cosmicHalo {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Styles responsive */
+@media (max-width: 480px) {
+    .cosmic-photo-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .cosmic-ring:nth-child(1) {
+        width: 320px;
+        height: 320px;
+        top: -20px;
+        left: -20px;
+    }
+
+    .cosmic-ring:nth-child(2) {
+        width: 350px;
+        height: 350px;
+        top: -35px;
+        left: -35px;
+    }
+
+    .cosmic-ring:nth-child(3) {
+        width: 380px;
+        height: 380px;
+        top: -50px;
+        left: -50px;
+    }
+}

@@ -123,16 +123,11 @@ const StarryBackground = () => {
                 canvas.width * 0.3, canvas.height * 0.2, 0,
                 canvas.width * 0.7, canvas.height * 0.8, Math.max(canvas.width, canvas.height)
             );
-            //   cosmicGradient.addColorStop(0, 'rgba(25, 25, 112, 0.95)'); // Midnight blue center
-            //   cosmicGradient.addColorStop(0.4, 'rgba(72, 61, 139, 0.9)'); // Dark slate blue
-            //   cosmicGradient.addColorStop(0.7, 'rgba(123, 104, 238, 0.8)'); // Medium slate blue
-            //   cosmicGradient.addColorStop(1, 'rgba(75, 0, 130, 0.85)'); // Indigo edges
 
             cosmicGradient.addColorStop(0, 'rgba(10, 10, 50, 0.95)');   // Very dark midnight blue center
             cosmicGradient.addColorStop(0.4, 'rgba(30, 25, 70, 0.9)');  // Dark slate blue
             cosmicGradient.addColorStop(0.7, 'rgba(60, 50, 120, 0.8)'); // Medium-dark slate blue
             cosmicGradient.addColorStop(1, 'rgba(50, 0, 100, 0.85)');   // Dark indigo edges
-
 
             ctx.fillStyle = cosmicGradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -315,6 +310,7 @@ const StarryBackground = () => {
     return (
         <canvas
             ref={canvasRef}
+            // fixed top-0 left-0
             className="fixed top-0 left-0 w-full h-full pointer-events-none"
             style={{ zIndex: 0 }}
         />
