@@ -112,7 +112,8 @@ const StarryBackground = () => {
 
         // More subtle shooting star creation
         let shootingStarTimer = 0;
-        const shootingStarInterval = Math.random() * 5000 + 4000; // 4-9 seconds (less frequent)
+        const shootingStarInterval = Math.random() * 2000 + 1000; // 1-3 seconds (more frequent)
+        // const shootingStarInterval = Math.random() * 5000 + 4000; // 4-9 seconds (less frequent)
 
         const animate = () => {
             time += 0.016; // ~60fps
@@ -208,7 +209,8 @@ const StarryBackground = () => {
 
             // Create shooting stars more rarely
             if (shootingStarTimer > shootingStarInterval) {
-                if (Math.random() < 0.2) { // Only 20% chance
+                if (Math.random() < 0.9) { // Only 90% chance
+                // if (Math.random() < 0.2) { // Only 20% chance
                     createShootingStar();
                 }
                 shootingStarTimer = 0;
