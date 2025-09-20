@@ -26,6 +26,6 @@ export default defineConfig({
       include: ['src/**/*.{ts,tsx}'] // fichiers à couvrir
     }
   },
-  base: '/portfolio-app-react/',
+  base: '/portfolio/',
 
 })
