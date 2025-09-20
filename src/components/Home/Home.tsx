@@ -1,5 +1,5 @@
 // import { Button } from "./ui/button";
-import developerPortrait from '../../../public/developer-portrait.png';
+import developerPortrait from "../../../public/developer-portrait.png";
 import './index.css';
 
 

@@ -35,17 +35,17 @@ export default function Achievements() {
         loadProjects();
     }, []);
 
-    if (!projects) return <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 p-4 space-y-3" id="projects">
+    if (!projects) return <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-3" id="projects">
         <h2 className="border-b p-3 text-3xl font-semibold text-center">PROJECTS</h2>
 
-      <Card className="max-w-md w-full shadow-lg border border-slate-200">
+      <Card className="max-w-md w-full shadow-lg bg-black border-0">
         <CardHeader className="flex flex-col items-center text-center space-y-2">
-          <Loader2 className="w-12 h-12 animate-spin text-blue-500" />
-          <CardTitle className="text-2xl">Loading Projects...</CardTitle>
+          <Loader2 className="w-12 h-12 animate-spin text-violet-700" />
+          <CardTitle className="text-2xl text-violet-700 animate-pulse">Loading Projects...</CardTitle>
         </CardHeader>
         <CardContent className="text-center">
           <CardDescription>
-            Please wait while we fetch your projects from the server.
+            Please wait while we fetch projects from the server.
           </CardDescription>
         </CardContent>
       </Card>
