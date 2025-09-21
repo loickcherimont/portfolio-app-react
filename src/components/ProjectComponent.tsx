@@ -13,7 +13,7 @@ export default function ProjectComponent() {
     const loadProject = async (id: string) => {
         try {
             setIsLoading(true);
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/project/${id}`);
+            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/project/${id}`);
             if (!response.ok) throw new Error("Project not found");
             const data = await response.json();
             setProject(data);
@@ -43,6 +43,12 @@ export default function ProjectComponent() {
                 <div className="relative z-10 flex flex-col items-center justify-center h-screen">
                     <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500 mb-4" />
                     <p className="text-slate-200">Loading project...</p>
+                    <NavLink
+                        to="/portfolio"
+                        className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300"
+                    >
+                        Return to Home
+                    </NavLink>
                 </div>
             </div>
         );
@@ -58,7 +64,7 @@ export default function ProjectComponent() {
                     </h2>
                     <p className="text-slate-400">{error}</p>
                     <NavLink
-                        to="/"
+                        to="/portfolio"
                         className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300"
                     >
                         Return to Home
@@ -114,7 +120,7 @@ export default function ProjectComponent() {
                 </div>
 
                 <NavLink
-                    to="/"
+                    to="/portfolio"
                     className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300"
                 >
                     Return to Home
