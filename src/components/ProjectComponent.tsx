@@ -15,10 +15,10 @@ export default function ProjectComponent() {
             setIsLoading(true);
 
             // PROD
-            // const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/project/${id}`);
+            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/project/${id}`);
 
             // DEV
-            const response = await fetch(`http://localhost:8080/api/projects/${id}`);
+            // const response = await fetch(`http://localhost:8080/api/projects/${id}`);
             if (!response.ok) throw new Error("Project not found");
             const data = await response.json();
             setProject(data);
