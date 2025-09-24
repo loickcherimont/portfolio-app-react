@@ -11,10 +11,10 @@ export default function Achievements() {
     const loadProjects = async () => {
         try {
             // PROD
-            // const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/projects`);
+            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/projects`);
 
             // DEV
-            const response = await fetch(`http://localhost:8080/api/projects`);
+            // const response = await fetch(`http://localhost:8080/api/projects`);
 
             if (!response.ok) throw new Error("Server cannot be joined!");
 
@@ -78,5 +78,3 @@ export default function Achievements() {
 
 
 }
-
-// todo: find why the '.h-screen' break "PROJECTS" and "CONTACT" sections.
