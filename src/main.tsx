@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/portfolio' element={<App />} />
         <Route path='/*' element={<Error />} />
-        <Route path='/project/:id' element={<ProjectComponent />} />
+        <Route path='/portfolio/projects/:id' element={<ProjectComponent />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
