@@ -15,7 +15,7 @@ export default function ProjectComponent() {
             setIsLoading(true);
 
             // PROD
-            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/project/${id}`);
+            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/projects/${id}`);
 
             // DEV
             // const response = await fetch(`http://localhost:8080/api/projects/${id}`);
