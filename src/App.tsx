@@ -11,7 +11,6 @@ function App() {
     <div className="relative min-h-screen text-slate-300">
       <StarryBackground />
       <div className="relative z-10 flex flex-col gap-y-10 bg-transparent">
-        {/* bg-gradient-to-b from-blue-950/90 to-indigo-950/90 */}
         <Header />
         <Home />
         <About />
