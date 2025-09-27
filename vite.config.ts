@@ -13,19 +13,20 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    host: true,   // listen all interfaces
+    port: 5173,   // default container port
+    strictPort: true,
   },
   test: {
     environment: "jsdom",
     globals: true,
     setupFiles: "./tests/setupTests.ts",
     coverage: {
-      provider: 'istanbul',              // ou 'istanbul'
-      reporter: ['text', 'lcov'],  // 'text' pour console, 'lcov' pour navigateur
-      all: true,                    // inclut tous les fichiers, pas seulement ceux importés dans les tests
-      include: ['src/**/*.{ts,tsx}'] // fichiers à couvrir
+      provider: 'istanbul',              // or 'istanbul'
+      reporter: ['text', 'lcov'],  // 'text' for console, 'lcov' for browser
+      all: true,                    // include all files, not only imported ones from testings
+      include: ['src/**/*.{ts,tsx}'] // files to cover
     }
   },
   base: '/portfolio',
-
 })
