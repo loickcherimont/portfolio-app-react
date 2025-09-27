@@ -2,6 +2,7 @@ import type { Project } from "@/lib/type/Project";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router";
 import StarryBackground from "./StarryBackground";
+import { API_URL } from "@/constants";
 
 export default function ProjectComponent() {
     const [project, setProject] = useState<Project | null>(null);
@@ -14,11 +15,8 @@ export default function ProjectComponent() {
         try {
             setIsLoading(true);
 
-            // PROD
-            const response = await fetch(`https://portfolio-api-v1j0.onrender.com/api/projects/${id}`);
+            const response = await fetch(`${API_URL}/api/projects/${id}`);
 
-            // DEV
-            // const response = await fetch(`http://localhost:8080/api/projects/${id}`);
             if (!response.ok) throw new Error("Project not found");
             const data = await response.json();
             setProject(data);
@@ -64,13 +62,13 @@ export default function ProjectComponent() {
             <div className="relative min-h-screen">
                 <StarryBackground />
                 <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center p-4 gap-y-5">
-                    <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-slate-200">
+                    <h2 className="scroll-m-20 border-b pb-2 md:text-4xl font-semibold tracking-tight first:mt-0 text-slate-200">
                         Project not found
                     </h2>
-                    <p className="text-slate-400">{error}</p>
+                    <p className="text-slate-400 md:text-lg">{error}</p>
                     <NavLink
                         to="/portfolio"
-                        className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300"
+                        className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300 md:text-lg"
                     >
                         Return to Home
                     </NavLink>
@@ -84,19 +82,20 @@ export default function ProjectComponent() {
             <StarryBackground />
             <div className="relative z-10 flex flex-col items-center p-4 max-w-screen-lg mx-auto">
                 {/* Title */}
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-center text-slate-200">
+                <h1 className="text-xl md:text-2xl font-bold mb-4 text-center text-slate-200 lg:text-5xl">
                     {project?.title}
                 </h1>
 
                 {/* Image */}
+                {/* To fix */}
                 <img
-                    src={project?.imageUrl}
+                    src={`${API_URL}/images/${project?.imageUrl}`}
                     alt={`Preview for project no.${project?.id}`}
                     className="rounded-lg w-full max-w-xs md:max-w-md lg:max-w-lg object-cover mb-4 shadow-lg"
                 />
 
                 {/* Description */}
-                <p className="text-sm md:text-base lg:text-lg text-justify mb-4 text-slate-300">
+                <p className="text-sm md:text-base lg:text-xl text-justify mb-4 text-slate-300 leading-8">
                     {project?.description}
                 </p>
 
@@ -105,7 +104,7 @@ export default function ProjectComponent() {
                     {project?.techs?.map((tech, index) => (
                         <li
                             key={index}
-                            className="px-3 py-1 bg-slate-800/50 backdrop-blur-sm rounded-full text-xs md:text-sm lg:text-base bg-violet-700 text-black"
+                            className="px-3 py-1 bg-slate-800/50 backdrop-blur-sm rounded-full text-xs md:text-sm lg:text-lg bg-violet-700 text-white"
                         >
                             {tech}
                         </li>
@@ -113,12 +112,13 @@ export default function ProjectComponent() {
                 </ul>
 
                 {/* Links */}
+                {/* To fix */}
                 <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center mb-4">
                     <a
                         href={project?.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-300 hover:text-blue-400 transition-colors underline break-all"
+                        className="text-blue-300 hover:text-blue-400 transition-colors underline break-all lg:text-lg"
                     >
                         {project?.githubUrl}
                     </a>
@@ -126,7 +126,7 @@ export default function ProjectComponent() {
 
                 <NavLink
                     to="/portfolio"
-                    className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300"
+                    className="px-4 py-2 bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-md hover:bg-slate-700/50 transition bg-violet-700 text-black hover:bg-violet-500 transition ease-in duration-300 lg:text-lg"
                 >
                     Return to Home
                 </NavLink>
